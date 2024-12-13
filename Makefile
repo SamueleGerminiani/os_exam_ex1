@@ -10,11 +10,12 @@ all: $(TARGET) $(CHILD_EXEC)
 
 # Rule to compile the main program (ex1)
 $(TARGET): src/ex1.c src/errExit.c
-	$(CC) -I $(INCLUDES) $(CFLAGS) -o $(TARGET) src/ex1.c
+	$(CC) -I $(INCLUDES) $(CFLAGS) -o $(TARGET) src/ex1.c src/errExit.c
 
 # Rule to compile the child exec program
 $(CHILD_EXEC): src/child.c src/errExit.c
-	$(CC) -I $(INCLUDES) $(CFLAGS) -o $(CHILD_EXEC) src/child.c
+	$(CC) -I $(INCLUDES) $(CFLAGS) -o $(CHILD_EXEC) src/child.c src/errExit.c
+
 
 # Clean up the generated files
 clean:
